@@ -155,3 +155,108 @@ function slasher(arr, howMany) {
   return arr.splice(howMany,arr.length);
  
 }
+
+12. Mutations
+
+function mutation(arr) {
+arr[0]=arr[0].toLowerCase();
+arr[1]=arr[1].toLowerCase();
+var result;
+for(var i=0; i<arr[1].length; i++){
+	
+	result = arr[0].indexOf(arr[1][i]);
+	if(result == -1){
+		return false
+	}
+	
+}
+return true;
+}
+
+13. Falsy Bouncer
+
+function bouncer(arr) {
+    var filtered = arr.filter(isBigEnough);
+
+    function isBigEnough(value) {
+        var falsy = [false, null, undefined, NaN, "", 0];
+
+        for (var i = 0; i < falsy.length; i++) {
+
+            if (falsy.indexOf(value) == -1) {
+                return value;
+            }
+
+        }
+    }
+    return filtered;
+
+}
+
+14. Destroyer
+
+function destroyer(arr) {
+
+  var args = [];
+  for(var i=1;i<arguments.length;i++){
+  	
+  	args.push(arguments[i]);
+  }
+  
+  var results = [];
+  for(var i=0;i<arr.length;i++){
+  	
+  	 if(args.indexOf(arr[i])== -1){
+  	 	results.push(arr[i]);
+  	 }
+  }
+  return results;
+}
+
+15. Get index to insert
+
+function getIndexToIns(arr, num) {
+  
+  arr = arr.sort(function(a,b){return a - b});
+  console.log(arr);
+  var result;
+  for(var i=0; i <= arr.length; i++){
+  	if(num <= arr[i]){
+		console.log(arr[i]);
+  		result = i;
+  		return result;
+  	}
+  }
+  result = i-1;
+ return result;
+}
+
+16. Ceaser Cipher
+
+function rot13(str) { 
+
+  var result = '';
+  var num;
+  
+  for (var i=0; i<str.length; i++){
+  	  
+  	 if(str[i].match(/\W/g)){
+  	 	
+  	 	word = str[i];
+  	 	
+  	 }
+  	 else if(str[i].charCodeAt()+13 > 90){
+  	 	
+  	 	var test = 13 -(90 - str[i].charCodeAt());
+  	 	word = String.fromCharCode(64+test);
+
+  	 }
+  	 else{
+  	    word = String.fromCharCode(str[i].charCodeAt()+13);
+
+  	 }
+  	 
+  	 result += word;
+  }
+  return result;
+}
