@@ -23,10 +23,7 @@ function factorialize(num) {
 3. Palindrome
 
 function palindrome(str) {
-  
-  var str = str.split(" ").join("").toLowerCase();
-
+  str = str.replace(/[^A-Za-z0-9]/g, '').split(" ").join("").toLowerCase();
   var new_str = str.split("").reverse().join("");
-
   return str===new_str;
 }
