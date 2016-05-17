@@ -19,3 +19,14 @@ function factorialize(num) {
   }
   return fact;
 }
+
+3. Palindrome
+
+function palindrome(str) {
+  
+  var str = str.split(" ").join("").toLowerCase();
+
+  var new_str = str.split("").reverse().join("");
+
+  return str===new_str;
+}
