@@ -1,4 +1,4 @@
-Reverse a string:
+<h3>Reverse a string:</h3>
 
 function FirstReverse(str) { 
   var rev_str = "";
