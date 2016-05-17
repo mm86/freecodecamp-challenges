@@ -27,3 +27,131 @@ function palindrome(str) {
   var new_str = str.split("").reverse().join("");
   return str===new_str;
 }
+
+4. Longest word in a string
+
+function findLongestWord(str) {
+
+ var new_str = str.match(/(\w+)/g);
+ var longest = '';
+ for(var i = 0; i<=new_str.length-1; i++){
+ 	console.log(i);
+ 	if(longest.length < new_str[i].length){
+ 		longest = new_str[i];
+ 		console.log(longest);
+ 	}
+ }
+ return longest;
+
+}
+
+5. Capitalize first character of each word in a string
+
+function titleCase(str) {
+  var words = str.toLowerCase().split(" ");
+  var new_words = [];
+  for (var i = 0; i < words.length; i++){
+  	words[i] = words[i].substring(0,1).toUpperCase() + words[i].substring(1);
+  }
+  return words.join(" ");
+}
+
+6. Find max number in each sub-array of a given array 
+
+function largestOfFour(arr) {
+  
+var large_array = [];
+
+for(var i = 0; i<arr.length; i++)
+{
+	
+var largest= 0;
+for (j=0; j<arr[i].length;j++){
+
+    if (largest < arr[i][j]) {
+    	console.log(arr[i][j]);
+        var largest=arr[i][j];
+        
+    }
+
+}
+large_array.push(largest);
+}
+  return large_array;
+}
+
+7. Check if a given string matches a target
+
+function confirmEnding(str, target) {
+
+  var words = str.split(" ");
+  var last_word = words[words.length-1];
+
+  var len = last_word.length;
+  
+  for(var i = 0; i <= last_word.length; i++){
+  	
+   console.log(last_word.substr(len-i,len));
+   if(last_word.substr(len-i,len) === target){
+   	return true
+   }
+
+  }
+  return false;
+}
+
+8. Repeat string given num times
+
+function repeatStringNumTimes(str, num) {
+
+  var new_str = '';
+  for(var i = 0; i< num; i++){
+  	
+  	new_str += str;
+  }
+  return new_str;
+}
+
+
+9. Truncate string
+
+function truncateString(str, num) {
+ if(num<=3){
+	  str.slice(0,num);
+	  str = str.slice(0,num)+"...";
+ }
+ else if(str.length > num){
+    num = num-3;
+    str.slice(0,num);
+	  str = str.slice(0,num)+"...";
+ }
+ else if(str.length<=num ){
+	  str.slice(0,num);
+	  str = str.slice(0,num);
+ }
+ return str;
+}
+
+
+10. Chunky Monkeys
+
+function chunkArrayInGroups(arr, size) {
+  
+  var new_arr = [];
+  var split = size;
+  
+  for(var i=0; i<arr.length; i=i+size)
+  { 
+  	new_arr.push(arr.slice(i,i+size));
+  }
+  
+  return new_arr;
+}
+
+11. Slasher
+
+function slasher(arr, howMany) {
+  
+  return arr.splice(howMany,arr.length);
+ 
+}
