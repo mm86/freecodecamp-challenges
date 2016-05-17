@@ -8,3 +8,14 @@ function FirstReverse(str) {
   }
   return rev_str;  
 }
+
+2. Factorial of a given number
+
+function factorialize(num) {
+  var fact = 1;
+  while(num > 0){
+    fact *= num;
+    num -= 1;
+  }
+  return fact;
+}
