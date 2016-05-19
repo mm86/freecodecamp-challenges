@@ -1,1 +1,47 @@
 
+1. Sum all numbers in a range
+
+function sumAll(arr) {
+
+  arr = arr.sort();
+  max =  Math.max(...arr);
+  min = Math.min(...arr);
+  var new_arr = [];
+  for (var i=min; i<= max; i++){
+ 	new_arr.push(i);
+  }
+  var total = new_arr.reduce(function(a, b) {
+  return a + b;
+});
+
+  return total;
+}
+
+2. Diff Array
+
+function diffArray(arr1, arr2) {
+
+  var newArr = arr1.concat(arr2).sort();
+  var temp = [];
+  for( var i=0;i<newArr.length;i++){
+ 	
+ 	if(newArr[i]===newArr[i+1]){
+ 		temp.push(newArr[i]);
+ 	}
+  }
+
+  var result = [];
+  function duplicate(value) {
+  
+     if(temp.indexOf(value) == -1){
+     	result.push(value);
+     }
+  
+  }
+  
+  var filtered = newArr.filter(duplicate);
+
+  return result;
+  
+}
+
