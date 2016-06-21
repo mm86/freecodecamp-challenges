@@ -32,17 +32,14 @@ function palindrome(str) {
 
 function findLongestWord(str) {
 
- var new_str = str.match(/(\w+)/g);
- var longest = '';
- for(var i = 0; i<=new_str.length-1; i++){
- 	console.log(i);
- 	if(longest.length < new_str[i].length){
- 		longest = new_str[i];
- 		console.log(longest);
- 	}
- }
- return longest;
-
+  str = str.split(" ");
+  var longest = 0;
+  for(var i in str){
+  	if(str[i].length>longest){
+  		longest = str[i].length;
+  	}
+  }
+  return longest;
 }
 
 5. Capitalize first character of each word in a string
@@ -59,25 +56,15 @@ function titleCase(str) {
 6. Find max number in each sub-array of a given array 
 
 function largestOfFour(arr) {
-  
-var large_array = [];
-
-for(var i = 0; i<arr.length; i++)
-{
-	
-var largest= 0;
-for (j=0; j<arr[i].length;j++){
-
-    if (largest < arr[i][j]) {
-    	console.log(arr[i][j]);
-        var largest=arr[i][j];
-        
-    }
-
-}
-large_array.push(largest);
-}
-  return large_array;
+//got sort function help from here: http://stackoverflow.com/questions/1063007/how-to-sort-an-array-of-integers-correctly
+  // You can do this!
+  var result = [];
+  for(var i in arr){
+  	arr[i]=arr[i].sort(function (a, b) {  return a - b;  });
+  	result.push(arr[i][arr[i].length-1]);
+  	
+  }
+  return result;
 }
 
 7. Check if a given string matches a target
