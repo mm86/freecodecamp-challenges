@@ -122,99 +122,100 @@ function truncateString(str, num) {
 10. Chunky Monkeys
 
 function chunkArrayInGroups(arr, size) {
-  
-  var new_arr = [];
-  var split = size;
-  
-  for(var i=0; i<arr.length; i=i+size)
-  { 
-  	new_arr.push(arr.slice(i,i+size));
+	
+  var result=[];
+
+  for(var i=0;i<arr.length;i=i+size){
+  	result.push(arr.slice(i,i+size));
   }
-  
-  return new_arr;
+  return result;
 }
+
+chunkArrayInGroups(["a", "b", "c", "d"], 2);
 
 11. Slasher
 
 function slasher(arr, howMany) {
-  
-  return arr.splice(howMany,arr.length);
+ 
+  var result = arr.splice(howMany,arr.length);
+  return result;
  
 }
 
 12. Mutations
 
+
 function mutation(arr) {
-arr[0]=arr[0].toLowerCase();
-arr[1]=arr[1].toLowerCase();
-var result;
-for(var i=0; i<arr[1].length; i++){
 	
-	result = arr[0].indexOf(arr[1][i]);
-	if(result == -1){
-		return false
-	}
-	
+  arr[0]=arr[0].toLowerCase();
+  arr[1]=arr[1].toLowerCase();
+ 
+  for(var i=0;i<arr[1].length;i++){
+  	console.log(arr[0].indexOf(arr[1][i]));
+  	if(arr[0].indexOf(arr[1][i]) === -1){
+  	
+  	return false;
+    }
+  	
+  }
+  
+  return true;
 }
-return true;
-}
+
+mutation(["floor", "for"]);
 
 13. Falsy Bouncer
 
 function bouncer(arr) {
-    var filtered = arr.filter(isBigEnough);
-
-    function isBigEnough(value) {
-        var falsy = [false, null, undefined, NaN, "", 0];
-
-        for (var i = 0; i < falsy.length; i++) {
-
-            if (falsy.indexOf(value) == -1) {
-                return value;
-            }
-
-        }
-    }
-    return filtered;
-
+  // Don't show a false ID to this bouncer.
+  
+  var result = [];
+  
+  for(var i in arr){
+  	
+  	if(Boolean(arr[i])){
+  		result.push(arr[i]);
+  		
+  	}
+  }
+  return result;
 }
+
+bouncer([7, "ate", "", false, 9]);
 
 14. Destroyer
 
 function destroyer(arr) {
+  // Remove all the values
 
   var args = [];
-  for(var i=1;i<arguments.length;i++){
+  for (var i=1;i<arguments.length;i++){
+  	 args.push(arguments[i]);
   	
-  	args.push(arguments[i]);
   }
-  
-  var results = [];
-  for(var i=0;i<arr.length;i++){
-  	
-  	 if(args.indexOf(arr[i])== -1){
-  	 	results.push(arr[i]);
-  	 }
-  }
-  return results;
+  var filtered = arr.filter(function isBigEnough(value) {
+  	if(args.indexOf(value)==-1){
+  		return value;
+  	}
+  });
+ 
+  return filtered;
 }
+
+destroyer([1, 2, 3, 1, 2, 3], 2, 3);
 
 15. Get index to insert
 
 function getIndexToIns(arr, num) {
-  
-  arr = arr.sort(function(a,b){return a - b});
-  console.log(arr);
-  var result;
-  for(var i=0; i <= arr.length; i++){
-  	if(num <= arr[i]){
-		console.log(arr[i]);
-  		result = i;
-  		return result;
+  arr = arr.sort(function (a, b) {  return a - b;  });
+  var index;
+  for(var i=0;i<arr.length;i++){
+  	if(num<=arr[i]){
+  		return i;
   	}
   }
-  result = i-1;
- return result;
+  return arr.length-1;
+}
 }
 
 16. Ceaser Cipher
