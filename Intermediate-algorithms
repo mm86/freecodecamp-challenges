@@ -21,27 +21,24 @@ function sumAll(arr) {
 
 function diffArray(arr1, arr2) {
 
-  var newArr = arr1.concat(arr2).sort();
-  var temp = [];
-  for( var i=0;i<newArr.length;i++){
- 	
- 	if(newArr[i]===newArr[i+1]){
- 		temp.push(newArr[i]);
- 	}
-  }
+ var newArr = [];
+ var concatarr = arr1.concat(arr2);
+ 
+ var filter1 = concatarr.filter(function symmetry(value) {
+  	if(arr1.indexOf(value) == -1){
+  		newArr.push(value);
+  		return value;	
+  	}
+ });
+ 
+  var filter2 = concatarr.filter(function symmetry(value) {
+  	if(arr2.indexOf(value) == -1){
+  		newArr.push(value);
+  		return value;	
+  	}
+ });
 
-  var result = [];
-  function duplicate(value) {
-  
-     if(temp.indexOf(value) == -1){
-     	result.push(value);
-     }
-  
-  }
-  
-  var filtered = newArr.filter(duplicate);
+return newArr;
 
-  return result;
-  
 }
 
