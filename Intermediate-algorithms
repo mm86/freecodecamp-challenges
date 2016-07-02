@@ -42,3 +42,31 @@ return newArr;
 
 }
 
+
+3.function convertToRoman(num) {
+	
+	//step 1: store the values in two seperate arrays
+	//no need to store all numbers, only the basic ones
+	//1,5,10,50,100, 500, 1000
+	var roman = ['I','V','X','L','C','D','M'];
+	var numeral = [1, 5, 10, 50, 100, 500, 1000];
+	
+	var arr = [];
+    var j=1;
+    while(num>10){
+    	var str = (num).toString(10).split("");
+    	new_str = str.splice(j,str.length);
+    	arr.push(num - parseInt(new_str.join("")));
+        num = parseInt(new_str.join(""));
+    }
+    arr.push(num);
+    
+    //ok so in arr, we have the arrays that need to be converted
+    //using the above 2 arrays
+    var romanarr = [];
+    //test something
+    
+    return arr;
+}
+
+convertToRoman(1984);
