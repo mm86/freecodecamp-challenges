@@ -64,3 +64,22 @@ function convertToRoman(num) {
 
 convertToRoman(39);
 
+4. function sumFibs(num) {
+
+var fibonacc = [1,1];
+var i= 1;
+var result = 2;
+while(fibonacc[i-1]+fibonacc[i]<=num){
+
+	fibonacc.push(fibonacc[i-1]+fibonacc[i]);
+    if((fibonacc[i-1]+fibonacc[i])%2!==0){
+    	result+=fibonacc[i-1]+fibonacc[i];
+    }
+    i++;
+	
+}
+
+  return result;
+}
+
+sumFibs(4);
