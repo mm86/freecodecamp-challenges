@@ -83,3 +83,22 @@ while(fibonacc[i-1]+fibonacc[i]<=num){
 }
 
 sumFibs(4);
+
+5. function whatIsInAName(collection, source) {
+
+  var srckeys = Object.keys(source);
+  var arr = collection.filter(function( index ) {
+    var result = [];
+    for(var i in srckeys){
+    	if(index.hasOwnProperty(srckeys[i])&&index[srckeys[i]]===source[srckeys[i]]){
+    		result.push("true");
+    	}
+    }
+    if (result.length === srckeys.length){return index;}
+    
+  });
+  
+  return arr;
+}
+
+
