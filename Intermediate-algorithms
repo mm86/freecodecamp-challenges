@@ -101,6 +101,39 @@ sumFibs(4);
   return arr;
 }
 
+15.
+
+function smallestCommons(arr) {
+	
+  arr = arr.sort(function (a, b) {  return a - b;  });
+  var numeric = [];
+  for(var i=arr[0];i<=arr[1];i++){
+  	numeric.push(i);
+  	
+  }
+  var j=2;
+  while(j>0){
+  	if(j%arr[0]===0 && j%arr[1]===0){
+  		var k=0;
+ 		while(k<numeric.length){
+  			
+  			if(j%numeric[k]!==0){
+				break;
+  			}
+			
+            if(k===numeric.length-1){
+            	
+  			return j;
+  		    }
+  			k++;
+  		}
+  	}
+  	j++;
+  	
+  }
+
+}
+
 
 21. 
 
