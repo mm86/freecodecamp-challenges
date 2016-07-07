@@ -102,3 +102,37 @@ sumFibs(4);
 }
 
 
+21. 
+
+function addTogether() {
+
+    function sumTwoAnd() {
+
+	if(typeof arguments[0] !== 'number'){
+      	   return undefined;
+	}
+	else
+	{
+	  return value1+arguments[0];	
+	}
+    }	
+    
+    if(arguments.length>1){
+    	if(typeof arguments[0] !== 'number' || typeof arguments[1] !== 'number'){
+    	return undefined;
+    	}
+    	else{
+    	return arguments[0]+arguments[1];	
+    	}
+    }
+    	 
+    else if(arguments.length<=1){
+
+    	if(typeof arguments[0] !== 'number'){
+    		return undefined;
+    	}
+		var value1 = arguments[0];
+		return sumTwoAnd;
+	}
+  
+}
